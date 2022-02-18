@@ -1,14 +1,26 @@
-#include <iostream>
-#include <locale.h>
-using namespace std;
+//calculadora.cpp
+#include <math.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
-void menu(){
-
-	cout <<	
+float soma (float n1, float n2){
+	return n1+n2;
 }
 
-int main(int argc, char** argv) {
-	return 0;
+float subtracao (float n1, float n2){
+	return n1-n2;
+}
+
+float multiplicacao (float n1, float n2){
+	return n1*n2;
+}
+
+float divisao (float n1, float n2){
+	return n1/n2;
+}
+
+float raiz (float n1){
+	return sqrt(n1);
+}
+
+float potencia (float n1, float n2){
+	return pow (n1, n2);
 }
