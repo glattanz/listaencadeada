@@ -1,8 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
-#include "pilha.h"
+#include "fila.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+using namespace std;
 
 void menu(){
 	cout << "Stack options:" <<endl;
@@ -12,17 +14,17 @@ void menu(){
 	cout << "4- isEmpty" <<endl;
 	cout << "5- Front" <<endl;
 	cout << "6- Print" <<endl;
-	//cout << "7- Free" << endl;
+	cout << "7- Free" << endl;
 	cout << "Other to quit" << endl;
 	cout << "? ";
 }
 
-using namespace std;
+
 
 int main(int argc, char** argv) {
 	
 	unsigned int op(0);
-	filha f;
+	fila f;
 	inicio_fila(&f);
 	int x;
 	
@@ -59,27 +61,27 @@ int main(int argc, char** argv) {
 			case 5:
 				x = front(&f);
 				if (x != -99)
-					cout << "At top:s " << x << endl;
+					cout << "At front: " << x << endl;
 				break;
 				
 			case 6:
 				print(&f);
 				break;
 			
-		/*	case 7:
+			case 7:
 				kill_stack(&f);
 				cout << "Free stack executed!" << endl;
 				break;
-		*/
+		
 			default: 
-				cout<<"Option is not valid!\n"
+				cout<<"Option is not valid!\n";
 		
 		}cout << endl;
 		
 	}while(op > 0 && op < 8);	
 	
 	cout << "End of Stack Program!" << endl;
-	kill_stack(&p);
+	kill_stack(&f);
 		
 	return 0;
 }
