@@ -94,3 +94,16 @@ int tamanho(Lista* l){
 	return q;
 }
 
+void mostraFim(Lista* l){
+	
+	for (p = l; p != NULL; p = p->prox){
+		if (p->prox == NULL)
+			printf("Ultimo elemento: %d", p)
+	}
+	
+void mostraInicio(Lista* l){
+	
+	for (p = l; p != NULL; p = p->prox){
+		if (l == NULL)
+			printf("Primeiro elemento: %d", p)
+	}
