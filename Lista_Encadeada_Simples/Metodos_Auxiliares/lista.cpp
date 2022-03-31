@@ -6,38 +6,38 @@ Lista* inicializa (void)
 	return NULL;
 }
 
-Lista* insere (Lista* l, int i)
+Lista* insereFim (Lista* l, int i)
 {
-	//aloca um endereço pro novo nó de dado
+	//aloca um endereÃ§o pro novo nÃ³ de dado
 	Lista* novo = (Lista*) malloc(sizeof(Lista));
 	
-	//Guarda o valor passado no nó de dado
+	//Guarda o valor passado no nÃ³ de dado
 	novo->info = i;
 	
 	//Passa o ponteiro pro final da fila
 	novo->prox = l;
 	
-	//Retorna o nó de dado
+	//Retorna o nÃ³ de dado
 	return novo;
 }
 
 void imprime (Lista* l)
 {
-	Lista* p; /* variável auxiliar para percorrer a lista */
+	Lista* p; /* variÃ¡vel auxiliar para percorrer a lista */
 	for (p = l; p != NULL; p = p->prox)
-	printf(“info = %d\n”, p->info);
+	printf(â€œinfo = %d\nâ€, p->info);
 }
 
-/* função vazia: retorna 1 se vazia ou 0 se não vazia */
+/* funÃ§Ã£o vazia: retorna 1 se vazia ou 0 se nÃ£o vazia */
 int vazia (Lista* l)
 {
  if (l == NULL)
- return 1;
+ printf("Lista vazia");
  else
- return 0;
+ printf("Lista nao vazia");
 }
 
-/* função busca: busca um elemento na lista */
+/* funÃ§Ã£o busca: busca um elemento na lista */
 Lista* ocorrencias (Lista* l, int v)
 {
  Lista* p;
@@ -47,39 +47,43 @@ Lista* ocorrencias (Lista* l, int v)
  	return oc;
  }
  
- return NULL; /* não achou o elemento */
+ printf("Elemento nao encontrado."); /* nÃ£o achou o elemento */
 }
 
-/* função retira: retira elemento da lista */
+/* funÃ§Ã£o retira: retira elemento da lista */
 Lista* removeInicio (Lista* l, int v) {
 	
 	Lista* ant = NULL; /* ponteiro para elemento anterior */
 	Lista* p = l; /* ponteiro para percorrer a lista*/
 	/* procura elemento na lista, guardando anterior */
 	
-	// ant == NULL: significa q é o primeiro elemento da lista 
-	if (ant == NULL) {
-	/* retira elemento do inicio */
-	//l é prim
-	l = p->prox;
+	for (p=l; p!=NULL; p=p->prox){
+		// ant == NULL: significa q Ã© o primeiro elemento da lista 
+		if (ant == NULL) {
+		/* retira elemento do inicio */
+		//l Ã© prim
+		l = p->prox;
+		}
+		free(p);
 	}
-	free(p);
 	return l;
 }
 
-Lista* removeInicio (Lista* l, int v) {
+Lista* removeFim (Lista* l, int v) {
 	
 	Lista* ant = NULL; /* ponteiro para elemento anterior */
 	Lista* p = l; /* ponteiro para percorrer a lista*/
 	/* procura elemento na lista, guardando anterior */
 	
-	if (p->prox == NULL) {
-	/* retira elemento do inicio */
+	for (p=l; p!=NULL; p=p->prox){
+		if (p->prox == NULL) {
+		/* retira elemento do inicio */
 
-	p->prox = NULL;
+		ant = NULL;
+		}
+		free(p);
 	}
-	free(p);
-	return l;
+	return ant;
 }
 
 int tamanho(Lista* l){
