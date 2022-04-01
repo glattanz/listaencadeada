@@ -100,6 +100,7 @@ void mostraFim(Lista* l){
 		if (p->prox == NULL)
 			printf("Ultimo elemento: %d", p)
 	}
+}
 	
 void mostraInicio(Lista* l){
 	
